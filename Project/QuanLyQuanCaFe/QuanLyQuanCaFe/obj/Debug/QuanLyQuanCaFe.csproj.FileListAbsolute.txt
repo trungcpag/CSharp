@@ -1,0 +1,10 @@
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\bin\Debug\QuanLyQuanCaFe.exe.config
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\bin\Debug\QuanLyQuanCaFe.exe
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\bin\Debug\QuanLyQuanCaFe.pdb
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.csprojAssemblyReference.cache
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fLogin.resources
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.Properties.Resources.resources
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.csproj.GenerateResource.cache
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.exe
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.pdb
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fTableManager.resources
