@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.txbUserName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txbPassWord = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -52,6 +52,27 @@
             this.panel1.Size = new System.Drawing.Size(453, 249);
             this.panel1.TabIndex = 0;
             // 
+            // btnExit
+            // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Location = new System.Drawing.Point(357, 144);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(276, 144);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txbUserName);
@@ -60,6 +81,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(450, 54);
             this.panel2.TabIndex = 0;
+            // 
+            // txbUserName
+            // 
+            this.txbUserName.Location = new System.Drawing.Point(160, 17);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.Size = new System.Drawing.Size(272, 20);
+            this.txbUserName.TabIndex = 1;
             // 
             // label1
             // 
@@ -70,13 +98,6 @@
             this.label1.Size = new System.Drawing.Size(132, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Đăng nhập:";
-            // 
-            // txbUserName
-            // 
-            this.txbUserName.Location = new System.Drawing.Point(160, 17);
-            this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(272, 20);
-            this.txbUserName.TabIndex = 1;
             // 
             // panel3
             // 
@@ -105,30 +126,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mật khẩu:";
             // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(276, 144);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(357, 144);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // fLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(477, 273);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);

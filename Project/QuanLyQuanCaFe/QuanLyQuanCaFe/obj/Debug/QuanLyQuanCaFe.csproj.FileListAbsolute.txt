@@ -8,3 +8,5 @@ C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanL
 C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.exe
 C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.pdb
 C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fTableManager.resources
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fAccountProfile.resources
+C:\Users\windowthanhtrung\Desktop\CSharp-QuanlyCafe\Project\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fAdmin.resources
