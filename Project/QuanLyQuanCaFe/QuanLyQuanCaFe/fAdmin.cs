@@ -20,11 +20,19 @@ namespace QuanLyQuanCaFe
             loadAccountList();
         }
 
+        void loadFoodList()
+        {
+            string query = "exec dbo.USP_GetAccountByUserName @username";
+
+            dtgvFood.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] { "staff" });
+
+        }
+
         void loadAccountList()
         {
             string query = "exec dbo.USP_GetAccountByUserName @username";
-            DataProvider provider = new DataProvider();
-            dtgvAccount.DataSource = provider.ExecuteQuery(query, new object[] {"staff"});
+   
+            dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"staff"});
         }   
 
         private void button1_Click(object sender, EventArgs e)
