@@ -30,5 +30,18 @@ namespace QuanLyQuanCaFe.DAO
 
             return -1;
         }
+        public void InsertBill(int id)
+        {
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[] { id });
+            //return true;
+        }
+        public int GetMaxBill()
+        {
+            try {
+                return (int)DataProvider.Instance.ExecuteScalar("select MAX(id) from bill");
+            } catch {
+                return 1;
+            }
+        }
     }
 }
