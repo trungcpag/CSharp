@@ -15,15 +15,40 @@ namespace QuanLyQuanCaFe
 {
     public partial class fTableManager : Form
     {
-        public fTableManager()
+        private Account loginAccount;
+
+        public Account LoginAccount 
+        { 
+            get
+            {
+                return loginAccount;
+            }
+            set 
+            { 
+                loginAccount = value;
+                
+            }
+        }
+
+        public fTableManager(Account acc)
         {
             InitializeComponent();
+            this.loginAccount = acc;
+            changeAccount(loginAccount.Type);
             LoadTable();
             loadCategory();
             LoadComboBoxTable(cbSwitchTable);
         }
 
         #region Method
+
+        void changeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled= type == 1;
+            thôngTinCáNhânToolStripMenuItem.Text += "("+ loginAccount.DisplayName+")";
+            thoongToolStripMenuItem.Text += "(" + loginAccount.DisplayName + ")";
+        }
+            
         void loadCategory()
         {
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
@@ -104,9 +129,15 @@ namespace QuanLyQuanCaFe
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(loginAccount);
+            f.UpdateEventAccount += f_UpdateEventAccount;
             f.ShowDialog();
 
+        }
+
+        private void f_UpdateEventAccount(object sender, AccountEvent e)
+        {
+            thoongToolStripMenuItem.Text = "Thông tin tài khoản " + e.Acc.DisplayName;
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)

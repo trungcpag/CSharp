@@ -17,14 +17,19 @@ namespace QuanLyQuanCaFe
         public fAdmin()
         {
             InitializeComponent();
-            LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            Load();
         }
 
+        void Load()
+        {
+            LoadDateTimePickerBill();
+            LoadListFood();
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+        }
      
         private void button1_Click(object sender, EventArgs e)
         {
-
+            LoadListFood();
         }
 
         private void tcBill_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,6 +87,10 @@ namespace QuanLyQuanCaFe
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
             dtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+        }
+        void LoadListFood()
+        {
+            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
         }
         #endregion
 
