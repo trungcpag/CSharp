@@ -43,5 +43,10 @@ namespace QuanLyQuanCaFe.DAO
                 return 1;
             }
         }
+        public void CheckOut(int id)
+        {
+            string query = "update bill set status = 1 where id = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
     }
 }
