@@ -166,7 +166,7 @@ namespace QuanLyQuanCaFe
             {
                 if(MessageBox.Show(string.Format("Bạn có muốn thanh toán bàn {0} \n tổng tiền: giá - giảm giá  \n {1} - {1}*{2} = {3}  ",table.Name, totalPrice, discount, finalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount);
+                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalPrice);
                     showBill(table.ID);
                     LoadTable();
                 }

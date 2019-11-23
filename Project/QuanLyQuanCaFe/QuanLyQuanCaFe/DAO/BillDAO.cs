@@ -43,9 +43,15 @@ namespace QuanLyQuanCaFe.DAO
                 return 1;
             }
         }
-        public void CheckOut(int id, int discount)
+
+        public DataTable GetBillListByDate(DateTime checkIn, DateTime checkOut)
         {
-            string query = "update bill set status = 1 , discount = "+discount+" where id = " + id;
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut});
+        }
+
+        public void CheckOut(int id, int discount, float totalPrice )
+        {
+            string query = "update bill set DataCheckOut = GETDATE() , status = 1 , discount = "+discount+" , totalPrice = "+ totalPrice+" where id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
