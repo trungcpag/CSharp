@@ -247,5 +247,16 @@ namespace QuanLyQuanCaFe
             }
         }
         #endregion
+
+        private void thêmMónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAddFood_Click(this, new EventArgs());
+        }
+
+        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            btnCheckOut_Click(this, new EventArgs());
+        }
     }
 }
