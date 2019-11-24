@@ -1,4 +1,5 @@
 ﻿using QuanLyQuanCaFe.DAO;
+using QuanLyQuanCaFe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace QuanLyQuanCaFe
 {
     public partial class fAdmin : Form
     {
+        BindingSource foodList = new BindingSource();
+
         public fAdmin()
         {
             InitializeComponent();
@@ -22,9 +25,12 @@ namespace QuanLyQuanCaFe
 
         void Load()
         {
+            dtgvFood.DataSource = foodList;
             LoadDateTimePickerBill();
             LoadListFood();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadCategoryIntoComboBox(cbFoodCategory);
+            AddFoodBinding();
         }
      
         private void button1_Click(object sender, EventArgs e)
@@ -90,8 +96,23 @@ namespace QuanLyQuanCaFe
         }
         void LoadListFood()
         {
-            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
+            foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
+
+        void AddFoodBinding()
+        {
+            txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name"));
+            txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "ID"));
+            nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price"));
+
+        }
+
+        void LoadCategoryIntoComboBox(ComboBox cb)
+        {
+            cb.DataSource = CategoryDAO.Instance.GetListCategory();
+            cb.DisplayMember = "Name";
+        }
+
         #endregion
 
         #region events
@@ -100,5 +121,30 @@ namespace QuanLyQuanCaFe
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
         #endregion
+
+        private void txbFoodID_TextChanged(object sender, EventArgs e)
+        {
+            if(dtgvFood.SelectedCells.Count > 0)
+            {
+                int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
+
+                Category category = CategoryDAO.Instance.GetCategoryByID(id);
+                cbFoodCategory.SelectedItem = category;
+                int index = -1;
+                int i = 0;
+                foreach(Category item in cbFoodCategory.Items)
+                {
+                    if(item.ID == category.ID)
+                    {
+                        index = i;
+                        break;
+                    }
+                    i++;
+                }
+                cbFoodCategory.SelectedIndex = index;
+            }
+
+            
+        }
     }
 }

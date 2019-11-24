@@ -56,7 +56,7 @@
             this.txbFoodName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txbUserName = new System.Windows.Forms.TextBox();
+            this.txbFoodID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
@@ -418,20 +418,21 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.txbUserName);
+            this.panel7.Controls.Add(this.txbFoodID);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(4, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(251, 54);
             this.panel7.TabIndex = 1;
             // 
-            // txbUserName
+            // txbFoodID
             // 
-            this.txbUserName.Location = new System.Drawing.Point(89, 18);
-            this.txbUserName.Name = "txbUserName";
-            this.txbUserName.ReadOnly = true;
-            this.txbUserName.Size = new System.Drawing.Size(159, 20);
-            this.txbUserName.TabIndex = 1;
+            this.txbFoodID.Location = new System.Drawing.Point(89, 18);
+            this.txbFoodID.Name = "txbFoodID";
+            this.txbFoodID.ReadOnly = true;
+            this.txbFoodID.Size = new System.Drawing.Size(159, 20);
+            this.txbFoodID.TabIndex = 1;
+            this.txbFoodID.TextChanged += new System.EventHandler(this.txbFoodID_TextChanged);
             // 
             // label1
             // 
@@ -1036,7 +1037,7 @@
         private System.Windows.Forms.TextBox txbFoodName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txbUserName;
+        private System.Windows.Forms.TextBox txbFoodID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.NumericUpDown nmFoodPrice;
