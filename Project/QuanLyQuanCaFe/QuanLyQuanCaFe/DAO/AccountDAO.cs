@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace QuanLyQuanCaFe.DAO
 {
@@ -20,8 +21,17 @@ namespace QuanLyQuanCaFe.DAO
 
         public bool Login(string username, string password)
         {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
+            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string hasPass = "";
+
+            foreach(byte item in hasData)
+            {
+                hasPass += item;
+            }
+            Console.WriteLine(hasPass);
             string query = "USP_Login @username , @password";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password});
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, hasPass});
             return result.Rows.Count > 0 ;
         }
 
@@ -46,7 +56,7 @@ namespace QuanLyQuanCaFe.DAO
         }
         public bool InsertAccount(string username, string displayname, int type)
         {
-            string query = string.Format("insert dbo.Account(username, displayname, type, passWord) values (N'{0}', N'{1}' , {2}, 0  )", username, displayname, type);
+            string query = string.Format("insert dbo.Account(username, displayname, type, passWord) values (N'{0}', N'{1}' , {2}, N'20720532132149213101239102231223249249135100218'  )", username, displayname, type);
             int res = DataProvider.Instance.ExecuteNonQuery(query);
             return res > 0;
         }
@@ -68,7 +78,7 @@ namespace QuanLyQuanCaFe.DAO
         public bool ResetPass(string username)
         {
             // BillInfoDAO.Instance.DeleteBillInfoByFoodID(idfood);
-            string query = string.Format("update Account set passWord = 0 where username = N'{0}' ", username);
+            string query = string.Format("update Account set passWord = N'20720532132149213101239102231223249249135100218' where username = N'{0}' ", username);
             int res = DataProvider.Instance.ExecuteNonQuery(query);
             return res > 0;
         }
