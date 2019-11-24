@@ -44,5 +44,33 @@ namespace QuanLyQuanCaFe.DAO
         {
             return DataProvider.Instance.ExecuteQuery("select Username, DisplayName, type from Account");
         }
+        public bool InsertAccount(string username, string displayname, int type)
+        {
+            string query = string.Format("insert dbo.Account(username, displayname, type, passWord) values (N'{0}', N'{1}' , {2}, 0  )", username, displayname, type);
+            int res = DataProvider.Instance.ExecuteNonQuery(query);
+            return res > 0;
+        }
+
+        public bool UpdateAccount(string name, string displayname, int type)
+        {
+            string query = string.Format("update Account set  displayName = N'{1}' , type = {2} where username = N'{0}' ", name, displayname, type );
+            int res = DataProvider.Instance.ExecuteNonQuery(query);
+            return res > 0;
+        }
+        public bool DeleteAccount(string username)
+        {
+           // BillInfoDAO.Instance.DeleteBillInfoByFoodID(idfood);
+            string query = string.Format("Delete Account where username = N'{0}' ", username);
+            int res = DataProvider.Instance.ExecuteNonQuery(query);
+            return res > 0;
+        }
+
+        public bool ResetPass(string username)
+        {
+            // BillInfoDAO.Instance.DeleteBillInfoByFoodID(idfood);
+            string query = string.Format("update Account set passWord = 0 where username = N'{0}' ", username);
+            int res = DataProvider.Instance.ExecuteNonQuery(query);
+            return res > 0;
+        }
     }
 }
