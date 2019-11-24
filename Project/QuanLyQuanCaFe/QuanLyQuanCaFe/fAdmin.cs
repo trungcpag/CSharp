@@ -16,7 +16,7 @@ namespace QuanLyQuanCaFe
     public partial class fAdmin : Form
     {
         BindingSource foodList = new BindingSource();
-
+        BindingSource accountList = new BindingSource();
         public fAdmin()
         {
             InitializeComponent();
@@ -26,11 +26,24 @@ namespace QuanLyQuanCaFe
         void Load()
         {
             dtgvFood.DataSource = foodList;
+            dtgvAccount.DataSource = accountList;
             LoadDateTimePickerBill();
             LoadListFood();
+            LoadAccount();
+            AddAccountBinding();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadCategoryIntoComboBox(cbFoodCategory);
             AddFoodBinding();
+        }
+
+        void AddAccountBinding()
+        {
+            txbUser.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Username" ,true , DataSourceUpdateMode.Never));
+            txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true , DataSourceUpdateMode.Never));
+            txbAccounType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+        }
+        void LoadAccount() {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
      
         private void button1_Click(object sender, EventArgs e)
@@ -240,6 +253,11 @@ namespace QuanLyQuanCaFe
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
              foodList.DataSource =  SearchFoodByName(txbSearchFoodName.Text);
+        }
+
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
         }
     }
 }
